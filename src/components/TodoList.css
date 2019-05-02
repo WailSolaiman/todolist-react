@@ -28,7 +28,6 @@
 }
 
 #todo ul {
-    width: 350px;
     display: block;
     margin: 30px auto;
 }
@@ -36,6 +35,13 @@
 #todo ul {
     font-size: 1.5rem;
     font-weight: 100;
+}
+
+#todo p {
+    font-size: 1.8rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #f6b93b;
 }
 
 input[type="checkbox"].switch_1 {

@@ -33,7 +33,7 @@ const SubHeader = () => {
 
 const CheckBox = props => {
     return (
-        <li style={listItemStyle} className="pretty p-switch">
+        <li style={listItemStyle}>
             <input 
                 type='checkbox'
                 className='switch_1' 
@@ -58,20 +58,35 @@ class TodoList extends React.Component {
     }
 
     addTodo = (e) => {
+        let isExist = false;
+
         if (e.key === 'Enter') {
 
-            if (e.target.value === '') {
+            if (e.target.value === '') 
                 alert('Please Add Todo Item...')
-            }
+
             else {
-                let newTodo = {
-                    todo: e.target.value,
-                    completed: false
+
+                this.state.list.map(item => {
+                    if (item.todo === e.target.value) {
+                        isExist = true
+                    }
+                    return isExist;
+                })
+    
+                if (!isExist) {
+                    let newTodo = {
+                        todo: e.target.value,
+                        completed: false
+                    }
+                    this.setState(state => ({
+                        list: [...state.list, newTodo]
+                    }))
+                    e.target.value = ''
                 }
-                this.setState(state => ({
-                    list: [...state.list, newTodo]
-                }))
-                e.target.value = ''
+    
+                else 
+                    alert('Todo is already in your List...')
             }
         }
     }
