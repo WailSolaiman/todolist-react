@@ -108,7 +108,7 @@ class TodoList extends React.Component {
                     <ul>
                     {
                         this.state.list.map((item, index) => (
-                            <CheckBox  key={index} {...item}  updateCheckbox={this.updateCheckbox} />
+                            <CheckBox key={index} {...item}  updateCheckbox={this.updateCheckbox} />
                         ))
                     }
                     </ul>
